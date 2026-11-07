@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northline — одна страница на 2027</title>
+<meta name="description" content="Печатный планировщик и финансовый трекер Northline на 2027. 22 страницы планировщика и 21 страница бюджета, каждый файл в A4 и US Letter. 590 ₽.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Outfit:wght@340;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #14261e;
+    --forest-2: #1c3328;
+    --cream: #f3eee4;
+    --cream-dim: #d9d0c2;
+    --ink: #1c2621;
+    --terracotta: #c56a45;
+    --star: #e4c48a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--forest);
+    color: var(--cream);
+    font-family: Outfit, "Segoe UI", sans-serif;
+    font-weight: 340;
+  }
+  a { color: inherit; }
+  .rule { height: 7px; background: var(--terracotta); }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 7vw 0;
+    letter-spacing: 0.16em;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .brand { display: flex; gap: 10px; align-items: center; }
+  .star { width: 16px; height: 16px; }
+  .hero {
+    padding: 8vh 7vw 6vh;
+    max-width: 1100px;
+  }
+  h1 {
+    margin: 0;
+    font-family: Fraunces, Georgia, serif;
+    font-weight: 560;
+    font-size: clamp(64px, 10vw, 132px);
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--star);
+  }
+  .lede {
+    max-width: 640px;
+    margin: 28px 0 0;
+    font-size: 20px;
+    line-height: 1.45;
+    color: var(--cream-dim);
+  }
+  .buy {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 36px;
+    background: var(--terracotta);
+    color: white;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 16px 22px 16px 26px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .buy span {
+    background: rgba(255,255,255,0.16);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  .reel-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 7vw 16px;
+    color: var(--cream-dim);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .reel {
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 7vw 48px;
+    scrollbar-color: var(--terracotta) transparent;
+  }
+  .reel figure {
+    margin: 0;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
+  .reel img {
+    height: min(72vh, 820px);
+    width: auto;
+    border-radius: 22px;
+    display: block;
+    background: var(--forest-2);
+  }
+  .reel figcaption {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--cream-dim);
+  }
+  .sheet {
+    background: var(--cream);
+    color: var(--ink);
+    border-radius: 36px 36px 0 0;
+    padding: 72px 7vw 88px;
+  }
+  .sheet h2 {
+    margin: 0 0 8px;
+    font-family: Fraunces, Georgia, serif;
+    font-weight: 560;
+    font-size: clamp(40px, 5vw, 68px);
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+  }
+  .files {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 36px;
+  }
+  .files article {
+    border: 1px solid #e4dccf;
+    border-radius: 18px;
+    padding: 22px 22px 18px;
+    background: #faf7f1;
+  }
+  .files strong { display: block; font-size: 18px; font-weight: 600; }
+  .files p { margin: 8px 0 0; color: #5d675f; line-height: 1.4; }
+  .note {
+    margin-top: 28px;
+    max-width: 680px;
+    line-height: 1.5;
+    color: #3d4a43;
+  }
+  footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 28px 7vw 40px;
+    color: var(--cream-dim);
+    font-size: 14px;
+  }
+  footer a { color: var(--star); }
+  @media (max-width: 720px) {
+    .files { grid-template-columns: 1fr; }
+    header { padding-top: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="rule"></div>
+<header>
+  <div class="brand">
+    <svg class="star" viewBox="0 0 16 16" aria-hidden="true">
+      <path fill="#e4c48a" d="M8 0l1.6 5.2L15 6.2 11 9.6 12.4 15 8 12.2 3.6 15 5 9.6 1 6.2l5.4-1z"/>
+    </svg>
+    NORTHLINE
+  </div>
+  <div>2027</div>
+</header>
+<main>
+  <section class="hero">
+    <h1>Одна страница.<br><em>Вся неделя.</em></h1>
+    <p class="lede">Спокойный печатный набор на 2027: планировщик и финансовый трекер. Страницы внутри на английском. Четырнадцать кадров ниже — это не сам набор, а его логика: три строки и остаток.</p>
+    <a class="buy" href="https://boosty.to/lerash/posts/9724a49e-e3c5-41b1-9b84-ba365b37b59a">Купить набор <span>590 ₽</span></a>
+  </section>
+  <div class="reel-label">
+    <span>14 кадров</span>
+    <span>Листай вправо</span>
+  </div>
+  <div class="reel">
+    <figure><img src="cards/01.png" alt="Куда делись деньги за выходные"><figcaption>01 — Выходные</figcaption></figure>
+    <figure><img src="cards/02.png" alt="Подписки, которые списываются сами"><figcaption>02 — Подписки</figcaption></figure>
+    <figure><img src="cards/03.png" alt="Дорога съела больше, чем казалось"><figcaption>03 — Дорога</figcaption></figure>
+    <figure><img src="cards/04.png" alt="Еда вне дома за одну неделю"><figcaption>04 — Еда вне дома</figcaption></figure>
+    <figure><img src="cards/05.png" alt="Коплю на наушники одной строкой"><figcaption>05 — Наушники</figcaption></figure>
+    <figure><img src="cards/06.png" alt="Подработка: куда делить смену"><figcaption>06 — Подработка</figcaption></figure>
+    <figure><img src="cards/07.png" alt="Месяц на одной странице"><figcaption>07 — Месяц</figcaption></figure>
+    <figure><img src="cards/08.png" alt="Привычка, которая тихо стоит денег"><figcaption>08 — Привычка</figcaption></figure>
+    <figure><img src="cards/09.png" alt="Остаток, который нельзя трогать"><figcaption>09 — Не трогать</figcaption></figure>
+    <figure><img src="cards/10.png" alt="Подарок без дыры в неделе"><figcaption>10 — Подарок</figcaption></figure>
+    <figure><img src="cards/11.png" alt="План был один, факт другой"><figcaption>11 — План и факт</figcaption></figure>
+    <figure><img src="cards/12.png" alt="Четыре цели, один вечер"><figcaption>12 — Четыре цели</figcaption></figure>
+    <figure><img src="cards/13.png" alt="Год помещается на одном листе"><figcaption>13 — Год</figcaption></figure>
+    <figure><img src="cards/14.png" alt="Сначала напечатай одну страницу"><figcaption>14 — Один лист</figcaption></figure>
+  </div>
+  <section class="sheet">
+    <h2>Четыре файла.<br>Два размера.</h2>
+    <div class="files">
+      <article>
+        <strong>Планировщик, A4</strong>
+        <p>22 страницы. Неделя начинается с понедельника. Northline-2027-Planner-A4.pdf</p>
+      </article>
+      <article>
+        <strong>Планировщик, US Letter</strong>
+        <p>22 страницы. Неделя начинается с воскресенья. Northline-2027-Planner-US-Letter.pdf</p>
+      </article>
+      <article>
+        <strong>Бюджет, A4</strong>
+        <p>21 страница. План, факт, цели накоплений. Northline-Budget-Kit-A4.pdf</p>
+      </article>
+      <article>
+        <strong>Бюджет, US Letter</strong>
+        <p>21 страница. Тот же комплект на Letter. Northline-Budget-Kit-US-Letter.pdf</p>
+      </article>
+    </div>
+    <p class="note">22 страницы планировщика и 21 страница бюджета, каждый файл в A4 и US Letter. Печатать в масштабе 100%. После оплаты на Boosty приходят все четыре PDF.</p>
+  </section>
+</main>
+<footer>
+  <div>NorthlineStudio</div>
+  <a href="https://boosty.to/lerash/posts/9724a49e-e3c5-41b1-9b84-ba365b37b59a">boosty.to/lerash</a>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Northline 2027 Planner + Budget Kit",
+  "description": "22 страницы планировщика и 21 страница бюджета, каждый файл в A4 и US Letter.",
+  "brand": "Northline",
+  "offers": {
+    "@type": "Offer",
+    "price": "590",
+    "priceCurrency": "RUB",
+    "url": "https://boosty.to/lerash/posts/9724a49e-e3c5-41b1-9b84-ba365b37b59a",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+</body>
+</html>
